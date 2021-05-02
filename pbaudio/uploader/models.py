@@ -1,16 +1,12 @@
 from django.db import models
 
-class Book(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
-    pdf = models.FileField(upload_to='books/pdfs/')
-    cover = models.ImageField(upload_to='books/covers/', null=True, blank=True)
+class Audio(models.Model):
+    speaker = models.CharField(max_length = 100)
+    recording = models.FileField(upload_to='recordings/')
 
     def __str__(self):
-        return self.title
+        return self.speaker
 
     def delete(self, *args, **kwargs):
-        self.pdf.delete()
-        self.cover.delete()
-        super().delete(*args, **kwargs)
-# Create your models here.
+        self.recording.delete()
+        super().delete(*args,**kwargs)

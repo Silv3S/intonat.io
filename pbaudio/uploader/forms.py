@@ -1,9 +1,7 @@
 from django import forms
+from .models import Audio
 
-from .models import Book
-
-
-class BookForm(forms.ModelForm):
+class AudioForm(forms.ModelForm):
     class Meta:
-        model = Book
-        fields = ('title', 'author', 'pdf', 'cover')
+        model = Audio
+        fields = ('speaker','recording')

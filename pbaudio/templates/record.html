@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href = "{% static 'css/recorder.css' %}">
+{% endblock %}
+
+{% block content %}
+  <h2>Audio recorder</h2>
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script src = "{% static 'js/recorder.js' %}"></script>
+<script src = "{% static 'js/recorder_jquery.js' %}"></script>
+
+  <div class="holder">
+    <div data-role="controls">
+        <button>Record</button>
+    </div>
+    <div data-role="recordings"></div>
+  </div>
+{% endblock %}
