@@ -30,6 +30,8 @@ urlpatterns = [
     path('audios/<int:pk>/', views.delete_audio, name='delete_audio'),
     path('class/audios/', views.AudioListView.as_view(), name='class_audio_list'),
     path('class/audios/upload/', views.UploadAudioView.as_view(), name='class_upload_audio'),
+    
+    path('pass_audio/', views.pass_audio, name='pass_audio'),
 ]
 
 if settings.DEBUG:

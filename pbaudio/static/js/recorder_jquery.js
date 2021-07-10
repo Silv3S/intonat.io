@@ -49,6 +49,31 @@ jQuery(document).ready(function () {
                                 .attr('href', url)
                                 .attr('download', new Date().toUTCString() + '.wav');
 
+                        function sendRecording(blob){
+                            var dataPackage = new FormData();
+                            dataPackage.append('recording', blob, new Date().toLocaleDateString("pl-PL") + '_.wav')
+                            dataPackage.append('speaker', "TODO_Speaker_name")
+
+                            $.ajax({
+                            url: "http://127.0.0.1:8000/pass_audio/",
+                            type: "POST",
+                            data: dataPackage,
+                            enctype: 'multipart/form-data',
+                            contentType: false,
+                            processData: false,
+                            context: url,
+                            
+                            //// Play recorded audio when success
+                            // success: function( dataT ) {
+                            //     $('audio #source').attr('src', dataT);
+                            //     $('audio').get(0).load();
+                            //     $('audio').get(0).play();
+                            // }
+                        });
+                        };
+
+                        sendRecording(blob)
+
                         // Wrap everything in a row
                         var holderObject = $('<div class="row"></div>')
                                 .append(audioObject)

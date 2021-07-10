@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, CreateView
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse_lazy
+from django.views.decorators.csrf import csrf_exempt
 
 from .forms import AudioForm
 from .models import Audio
@@ -60,4 +61,14 @@ class UploadAudioView(CreateView):
     success_url = reverse_lazy('class_audio_list')
     template_name = 'upload_audio.html'
 
-
+@csrf_exempt
+def pass_audio(request):
+    context = {}
+    if request.method == 'POST':
+        form = AudioForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('audio_list')
+    else:
+        form = AudioForm()
+    return render(request, 'record.html', {'form': form})  

@@ -10,7 +10,7 @@
     outline: none;
     display: block;
     border: none;
-    background-color: #D9AFD9;
+    background-color: #000;
     background-image: -webkit-gradient(linear, left bottom, left top, from(#D9AFD9), to(#97D9E1));
     background-image: -o-linear-gradient(bottom, #D9AFD9 0%, #97D9E1 100%);
     background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
@@ -25,7 +25,7 @@
         0px 0px 0px 30px #fff, 0px 0px 0px 35px #333;
 }
 [data-role="controls"] > button:hover {
-    background-color: #ee7bee;
+    background-color: #fff;
     background-image: -webkit-gradient(linear, left bottom, left top, from(#ee7bee), to(#6fe1f5));
     background-image: -o-linear-gradient(bottom, #ee7bee 0%, #6fe1f5 100%);
     background-image: linear-gradient(0deg, #ee7bee 0%, #6fe1f5 100%);
@@ -56,7 +56,7 @@
     color: #fff;
     font-weight: bold;
     text-decoration: underline;
-    background-color: #0093E9;
+    background-color: #000;
     background-image: -webkit-gradient(linear, left bottom, left top, from(#0093E9), to(#80D0C7));
     background-image: -o-linear-gradient(bottom, #0093E9 0%, #80D0C7 100%);
     background-image: linear-gradient(0deg, #0093E9 0%, #80D0C7 100%);

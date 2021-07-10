@@ -116,3 +116,4 @@ GitHub.sublime-settings
 .history
 
 media/
+.vscode/launch.json
