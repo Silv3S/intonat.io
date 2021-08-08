@@ -13,20 +13,18 @@ class Home(TemplateView):
 
 
 def record(request):
-    context = {}
+    context = {"recorder": "active"}
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
-    return render(request, 'record.html', context)
-
+        fs.save(uploaded_file.name, uploaded_file)
+    return render(request, 'record.html',context)
 
 def audio_list(request):
     audios = Audio.objects.all()
-    return render(request, 'audio_list.html', {
-        'audios': audios
-    })
+    context = {"audios":audios,
+    "audio_list": "active"}
+    return render(request, 'audio_list.html', context)
 
 
 def upload_audio(request):
@@ -48,18 +46,6 @@ def delete_audio(request, pk):
         audio.delete()
     return redirect('audio_list')
 
-
-class AudioListView(ListView):
-    model = Audio
-    template_name = 'class_audio_list.html'
-    context_object_name = 'audios'
-
-
-class UploadAudioView(CreateView):
-    model = Audio
-    form_class = AudioForm
-    success_url = reverse_lazy('class_audio_list')
-    template_name = 'upload_audio.html'
 
 @csrf_exempt
 def pass_audio(request):

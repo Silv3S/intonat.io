@@ -1,0 +1,15 @@
+#page-background {
+    background-image: linear-gradient(to right, 
+    white,
+    #f2f2f2,
+    #dbdbdb,
+    #eaeaea);
+  }
+
+#navbar-background{
+    background-color: #dbdbdb;
+}
+
+.active {
+    font-weight: bold;    
+}

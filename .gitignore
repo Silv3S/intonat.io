@@ -117,3 +117,6 @@ GitHub.sublime-settings
 
 media/
 .vscode/launch.json
+
+# Python Packages
+requirements.txt
