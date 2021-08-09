@@ -120,3 +120,4 @@ media/
 
 # Python Packages
 requirements.txt
+pbaudio/static/images/microphone.png
