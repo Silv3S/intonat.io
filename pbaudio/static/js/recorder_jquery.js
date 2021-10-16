@@ -48,9 +48,9 @@ jQuery(document).ready(function () {
                             var dataPackage = new FormData();
                             dataPackage.append('recording', blob, new Date().toLocaleDateString("pl-PL") + '_.wav')
 
-                            var speakerName = document.getElementById('speakerName').value;
-                            var speakerSurname = document.getElementById('speakerAge').value;
-                            var speakerSurname = document.getElementById('speakerSex').value;
+                            var speakerName = document.getElementById('speakerName').value
+                            var speakerAge = document.getElementById('speakerAge').value
+                            var speakerSex = document.getElementById('speakerSex').value
                             dataPackage.append('speaker', speakerName + "_" + speakerAge + "_" + speakerSex)
 
                             $.ajax({
