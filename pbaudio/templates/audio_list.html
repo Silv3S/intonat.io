@@ -10,6 +10,8 @@
     <thead>
       <tr>
         <th>Speaker</th>
+        <th>Age</th>
+        <th>Sex</th>
         <th>Recording</th>
         <th>Download</th>
         <th>Delete</th>
@@ -19,6 +21,8 @@
       {% for audio in audios %}
         <tr>
           <td>{{ audio.speaker }}</td>
+          <td>{{ audio.age }}</td>
+          <td>{{ audio.sex }}</td>
           <td>{{ audio.recording }}</td>
           <td>
             <a href="{{ audio.recording.url }}" class="btn btn-primary btn-sm" target="_blank">
@@ -28,7 +32,7 @@
           <td>
             <form method="post" action="{% url 'delete_audio' audio.pk %}">
               {% csrf_token %}
-              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')" >Delete</button>
             </form>
           </td>
         </tr>

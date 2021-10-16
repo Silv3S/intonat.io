@@ -4,4 +4,4 @@ from .models import Audio
 class AudioForm(forms.ModelForm):
     class Meta:
         model = Audio
-        fields = ('speaker','recording')
+        fields = ('speaker','age','sex','recording')
