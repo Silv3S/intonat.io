@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/page.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/pageCommon.css' %}">
+  <link id="pageStylesheet" rel="stylesheet" type="text/css" href="{% static 'css/pageLight.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.min.css' %}">
   
   <script language="JavaScript" type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
@@ -34,6 +35,11 @@
           </li>
         </ul>
       </div>
+      <input type="checkbox" id="toggle" class="toggle--checkbox" onclick="swapStyleMode()">
+      <label for="toggle" class="toggle--label">
+        <span class="toggle--label-background"></span>
+      </label>
+      <div class="background"></div>
     </div>
   </nav>
   <div class="container">
@@ -50,3 +56,34 @@
   </div>
 </body>
 </html>
+
+<script type="text/javascript">
+  
+  var theme = document.getElementById('pageStylesheet')
+  var cachedTheme = localStorage.getItem('theme')
+
+  if(cachedTheme != null)
+  {
+    theme.setAttribute('href', localStorage.getItem('theme'));
+    
+    if(cachedTheme == "{% static 'css/pageDark.css' %}")
+    {
+      document.getElementById('toggle').checked = true;
+    }
+
+  }
+
+  function swapStyleMode()
+  {
+    if (theme.getAttribute('href') == "{% static 'css/pageLight.css' %}")
+    {
+      localStorage.setItem('theme', "{% static 'css/pageDark.css' %}")
+    }
+    else
+    {
+      localStorage.setItem('theme', "{% static 'css/pageLight.css' %}")
+    }
+    
+    theme.setAttribute('href', localStorage.getItem('theme'));
+  }
+</script>
