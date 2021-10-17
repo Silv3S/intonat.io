@@ -3,10 +3,14 @@ from django.views.generic import TemplateView, ListView, CreateView
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.conf import settings
 
 from .forms import AudioForm
 from .models import Audio
 
+import os
+import json
 
 class Home(TemplateView):
     template_name = 'home.html'
@@ -58,3 +62,8 @@ def pass_audio(request):
     else:
         form = AudioForm()
     return render(request, 'record.html', {'form': form})  
+
+def get_scenario(request):    
+    file = os.path.join(settings.BASE_DIR, 'pbaudio/static/scenario.json' )
+    json_data = json.load(open(file))
+    return JsonResponse(json_data)

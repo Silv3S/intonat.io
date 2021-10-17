@@ -1,3 +1,22 @@
+var scenario;
+var currentSentence;
+var sentencesCount;
+const element = document.querySelector(".pagination ul");
+
+$.ajax({
+    type: 'GET',
+    url: 'http://127.0.0.1:8000/get_scenario',
+    success: function(json){
+        scenario = json;
+        UpdateScenarioBox(0);
+        sentencesCount = scenario.sentences.length - 2;
+        element.innerHTML = createPagination(sentencesCount, 0);
+    },
+    error: function(error) {
+        callbackErr(error,self)
+    }
+})
+
 jQuery(document).ready(function () {
     var $ = jQuery;
     var myRecorder = {
@@ -94,6 +113,101 @@ jQuery(document).ready(function () {
         } else {
             $(this).attr('data-recording', '');
             myRecorder.stop(listObject);
+            currentSentence++;
+            UpdateScenarioBox(currentSentence);
+            createPagination(sentencesCount, currentSentence)
         }
     });
 });
+
+function UpdateScenarioBox(curSen)
+{
+    currentSentence = curSen;
+    document.getElementById("currentSentence").innerHTML = scenario.sentences[currentSentence];
+
+    if(currentSentence > 0)
+    {
+        document.getElementById("previousSentence").innerHTML = scenario.sentences[currentSentence - 1];            
+    }
+    else
+    {
+        document.getElementById("previousSentence").innerHTML = "";  
+    }
+
+    if(currentSentence < scenario.sentences.length)
+    {
+        document.getElementById("nextSentence").innerHTML = scenario.sentences[currentSentence + 1];            
+    }
+    else
+    {
+        document.getElementById("nextSentence").innerHTML = "";  
+    }
+}
+
+function createPagination(sentencesCount, currentSentence){
+  let liTag = '';
+  let active;
+  
+  if(currentSentence < 0 || currentSentence > sentencesCount){
+      return liTag;
+  } 
+
+  if(currentSentence > 0)
+  {
+    liTag += `<li class="btn prev" onclick="createPagination(sentencesCount, ${currentSentence - 1})"><span><i class="fas fa-angle-left"></i> Previous</span></li>`;
+  }
+  else
+  {
+    liTag += `<li class="btn prev" disabled><span><i class="fas fa-angle-left"></i> Previous</span></li>`;
+  }
+
+  if(currentSentence > 1){
+    liTag += `<li class="first numb" onclick="createPagination(sentencesCount, 0)"><span>0</span></li>`;
+    if(currentSentence > 2){
+      liTag += `<li class="dots"><span>...</span></li>`;
+    }
+  }
+
+  for (var plength = currentSentence; plength <= currentSentence + 1; plength++) {
+    if (plength > sentencesCount) {
+      continue;
+    }
+    
+    if(currentSentence == plength){ //if currentSentence is equal to plength than assign active string in the active variable
+      active = "active";
+    }else{ //else leave empty to the active variable
+      active = "";
+    }
+    liTag += `<li class="numb ${active}" onclick="createPagination(sentencesCount, ${plength})"><span>${plength}</span></li>`;
+  }
+
+  if(currentSentence < sentencesCount - 1){ //if currentSentence value is less than totalcurrentSentence value by -1 then show the last li or currentSentence
+    if(currentSentence < sentencesCount - 2){ //if currentSentence value is less than totalcurrentSentence value by -2 then add this (...) before the last li or currentSentence
+      liTag += `<li class="dots"><span>...</span></li>`;
+    }
+    liTag += `<li class="last numb" onclick="createPagination(sentencesCount, ${sentencesCount})"><span>${sentencesCount}</span></li>`;
+  }
+
+  if (currentSentence < sentencesCount) { //show the next button if the currentSentence value is less than totalcurrentSentence(20)
+    liTag += `<li class="btn next" onclick="createPagination(sentencesCount, ${currentSentence + 1})"><span>Next <i class="fas fa-angle-right"></i></span></li>`;
+  }
+  else
+  {
+    liTag += `<li class="btn next" disabled><span>Next <i class="fas fa-angle-right"></i></span></li>`;
+  }
+    
+  liTag += `<li class="numb"><span><input type="number" min="0" max="${sentencesCount}" value="${currentSentence}" onchange="validateAndSetPagination(value)"></span></li>`;
+  
+  UpdateScenarioBox(currentSentence);
+  element.innerHTML = liTag; 
+  return liTag;
+}
+
+function validateAndSetPagination(value)
+{
+    if(value >=0 && value < sentencesCount)
+    {
+        currentSentence = value;
+        createPagination(sentencesCount, currentSentence)
+    }
+}
