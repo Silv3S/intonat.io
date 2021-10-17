@@ -1,0 +1,94 @@
+:root {
+    --light-background: #E5E5E5;
+    --light-card-background: #F5F5F5;
+    --light-menu-item: #8DB48E;
+    --light-menu-item-active: #4D724D;
+    --border-color: #000;
+}
+
+#page-background {
+    background-color: var(--light-background);
+}
+
+#navbar-background{
+    background-color: var(--light-background);
+}
+
+.navbar-brand{
+    color: var(--light-menu-item);
+}
+
+.navbar-brand:hover{
+    color: var(--light-menu-item-active);
+}
+
+.nav-link{
+    color: var(--light-menu-item);
+}
+
+.nav-link.active {
+    color: var(--light-menu-item-active);
+}
+
+.nav-link:hover {
+    color: var(--light-menu-item-active);
+}
+
+.card{
+    background-color: var(--light-card-background);    
+}
+
+.holder {
+    background-color: var(--light-background);
+}
+
+[data-role="controls"] > button {    
+    background-color: var(--light-menu-item);   
+    -webkit-box-shadow: 0px 0px 0px 12px var(--light-menu-item), 0px 0px 0px 15px var(--border-color);
+    box-shadow: 0px 0px 0px 12px var(--light-menu-item), 0px 0px 0px 15px var(--border-color);
+}
+
+[data-role="recordings"] > .row > audio {
+    background-color: var(--light-menu-item);
+}
+
+input, select{
+    background-color: var(--light-background);
+    color: var(--light-menu-item);   
+}
+
+::placeholder{    
+    color:var(--light-menu-item)
+}
+
+.pagination ul{
+  background: var(--light-background);
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+}
+
+.pagination ul li{
+  color: var(--light-menu-item);
+}
+
+.pagination li.active,
+.pagination ul li.numb:hover,
+.pagination ul li:first-child:hover,
+.pagination ul li:last-child:hover{
+  color: var(--light-background);
+  background: var(--light-menu-item);
+}
+
+.scenarioBox
+{
+  background-color: var(--light-background);
+}
+
+#currentSentence
+{
+    color: var(--light-menu-item);
+}
+
+.disabled-sentences
+{
+    color: var(--light-menu-item-active);
+}

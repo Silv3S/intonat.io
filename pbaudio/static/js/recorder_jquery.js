@@ -9,7 +9,7 @@ $.ajax({
     success: function(json){
         scenario = json;
         UpdateScenarioBox(0);
-        sentencesCount = scenario.sentences.length - 2;
+        sentencesCount = scenario.sentences.length - 1;
         element.innerHTML = createPagination(sentencesCount, 0);
     },
     error: function(error) {
@@ -131,7 +131,7 @@ function UpdateScenarioBox(curSen)
     }
     else
     {
-        document.getElementById("previousSentence").innerHTML = "";  
+        document.getElementById("previousSentence").innerHTML = " ";  
     }
 
     if(currentSentence < scenario.sentences.length)
@@ -140,7 +140,7 @@ function UpdateScenarioBox(curSen)
     }
     else
     {
-        document.getElementById("nextSentence").innerHTML = "";  
+        document.getElementById("nextSentence").innerHTML = " ";  
     }
 }
 
@@ -196,18 +196,7 @@ function createPagination(sentencesCount, currentSentence){
     liTag += `<li class="btn next" disabled><span>Next <i class="fas fa-angle-right"></i></span></li>`;
   }
     
-  liTag += `<li class="numb"><span><input type="number" min="0" max="${sentencesCount}" value="${currentSentence}" onchange="validateAndSetPagination(value)"></span></li>`;
-  
   UpdateScenarioBox(currentSentence);
   element.innerHTML = liTag; 
   return liTag;
-}
-
-function validateAndSetPagination(value)
-{
-    if(value >=0 && value < sentencesCount)
-    {
-        currentSentence = value;
-        createPagination(sentencesCount, currentSentence)
-    }
 }
