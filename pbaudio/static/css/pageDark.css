@@ -1,0 +1,93 @@
+:root {
+    --dark-background: #151515;
+    --dark-card-background: #181818;
+    --dark-menu-item: #028881;
+    --dark-menu-item-active: burlywood;
+    --border-color: #000;
+}
+
+#page-background {
+    background-color: var(--dark-background);
+}
+
+#navbar-background{
+    background-color: var(--dark-background);
+}
+
+.navbar-brand{
+    color: var(--dark-menu-item);
+}
+
+.navbar-brand:hover{
+    color: var(--dark-menu-item-active);
+}
+
+.nav-link{
+    color: var(--dark-menu-item);
+}
+
+.nav-link.active {
+    color: var(--dark-menu-item-active);
+}
+
+.nav-link:hover {
+    color: var(--dark-menu-item-active);
+}
+
+.card{
+    background-color: var(--dark-card-background);    
+}
+
+.holder {
+    background-color: var(--dark-background);
+}
+
+[data-role="controls"] > button {    
+    background-color: var(--dark-menu-item-active);   
+    -webkit-box-shadow: 0px 0px 0px 12px var(--dark-menu-item-active), 0px 0px 0px 15px var(--border-color);
+    box-shadow: 0px 0px 0px 12px var(--dark-menu-item-active), 0px 0px 0px 15px var(--border-color);
+}
+
+[data-role="recordings"] > .row > audio {
+    background-color: var(--dark-menu-item);
+}
+
+input, select{
+    background-color: var(--dark-background);
+    color: var(--dark-menu-item);   
+}
+
+::placeholder{    
+    color:var(--dark-menu-item)
+}
+
+.pagination ul{
+  background: var(--dark-background);
+}
+
+.pagination ul li{
+  color: var(--dark-menu-item);
+}
+
+.pagination li.active,
+.pagination ul li.numb:hover,
+.pagination ul li:first-child:hover,
+.pagination ul li:last-child:hover{
+  color: var(--dark-background);
+  background: var(--dark-menu-item);
+}
+
+.scenarioBox
+{
+  background-color: var(--dark-background);
+}
+
+#currentSentence
+{
+    color: var(--dark-menu-item-active);
+}
+
+.disabled-sentences
+{
+    color: var(--dark-menu-item);
+}

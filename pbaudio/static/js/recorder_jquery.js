@@ -134,7 +134,7 @@ function UpdateScenarioBox(curSen)
         document.getElementById("previousSentence").innerHTML = " ";  
     }
 
-    if(currentSentence < scenario.sentences.length)
+    if(currentSentence < sentencesCount)
     {
         document.getElementById("nextSentence").innerHTML = scenario.sentences[currentSentence + 1];            
     }
