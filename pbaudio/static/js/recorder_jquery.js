@@ -65,10 +65,13 @@ jQuery(document).ready(function () {
 
                         function sendRecording(blob){
                             var dataPackage = new FormData();
-                            dataPackage.append('speaker', document.getElementById('speakerName').value)
-                            dataPackage.append('age', document.getElementById('speakerAge').value)
-                            dataPackage.append('sex', document.getElementById('speakerSex').value)
-                            dataPackage.append('recording', blob, new Date().toLocaleDateString("pl-PL") + '_.wav')
+                            dataPackage.append('speaker', document.getElementById('speakerName').value);
+                            dataPackage.append('age', document.getElementById('speakerAge').value);
+                            dataPackage.append('sex', document.getElementById('speakerSex').value);
+                            dataPackage.append('quality', document.querySelector('input[name="voice-self-esteem"]:checked').value);
+                            dataPackage.append('pitch', document.querySelector('input[name="voice-scale"]:checked').value);
+                            dataPackage.append('recording', blob, new Date().toLocaleDateString("pl-PL") + '_.wav');
+
 
                             $.ajax({
                             url: "http://127.0.0.1:8000/pass_audio/",
