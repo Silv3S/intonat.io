@@ -92,3 +92,40 @@ input, select{
 {
     color: var(--light-menu-item-active);
 }
+
+.text-color
+{
+    color:var(--light-menu-item)
+}
+
+.speaker-form
+{
+    background-color: var(--light-background);
+}
+
+input[type="radio"]:checked + .radio-label {
+    background-color: var(--light-menu-item);
+    font-weight: bold;
+    color: var(--light-background);
+} 
+  
+input[type="radio"]:hover:not(:checked) + .radio-label {
+    background-color: var(--light-background);
+    color: var(--light-menu-item);
+    font-weight: bold;
+}
+
+.radio-label {
+    background-color: var(--dark-card-background);
+    color: var(--light-menu-item);
+} 
+
+.radio-label {
+    border: 2px solid var(--light-menu-item-active)
+}
+
+.section-title
+{
+    background-color: var(--light-background);
+    border:2px solid var(--light-menu-item-active);
+}

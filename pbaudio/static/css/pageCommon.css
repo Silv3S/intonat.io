@@ -30,7 +30,7 @@
   border-radius: 50px;
 }
 
-input:focus, select:focus{
+input, input:focus, select:focus{
   outline: none;
 }
 
@@ -371,3 +371,57 @@ input, select{
   text-align: center;
   text-decoration: italic;
 }
+
+.speaker-form
+{
+  text-align:center;
+  width:100%;
+  padding:25px;
+  border-radius: 50px;
+}
+
+.radio-question
+{
+  padding:15px;
+  text-align:center;
+  width: 80%;
+  margin:auto;
+}
+ 
+.radio-group {
+  display: flex;
+  height: 65px;
+}
+ 
+input[type="radio"] {
+  visibility: hidden;
+  height: 0; 
+  width: 0;
+}
+ 
+.radio-label {
+  display: flex;
+  flex: auto;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: color --transition-fast ease-out, 
+               background-color --transition-fast ease-in;
+  user-select: none;
+  margin-right: 8px;
+  font-weight: bold;
+ } 
+
+
+ .section-title
+ {
+   width:100%;
+   margin: auto;
+   text-align: center;
+   margin: 35px 0 15px 0;
+   padding: 5px 0;
+ }

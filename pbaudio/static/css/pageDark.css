@@ -1,6 +1,6 @@
 :root {
     --dark-background: #151515;
-    --dark-card-background: #181818;
+    --dark-card-background: #222;
     --dark-menu-item: #028881;
     --dark-menu-item-active: burlywood;
     --border-color: #000;
@@ -90,4 +90,42 @@ input, select{
 .disabled-sentences
 {
     color: var(--dark-menu-item);
+}
+
+.text-color
+{
+    color:var(--dark-menu-item)
+}
+
+.speaker-form
+{
+    background-color: var(--dark-background);
+}
+
+input[type="radio"]:checked + .radio-label {
+    background-color: burlywood;
+    font-weight: bold;
+    color: var(--dark-menu-item);    
+    border: 1px solid burlywood;
+} 
+  
+input[type="radio"]:hover:not(:checked) + .radio-label {
+    background-color: var(--dark-card-background);
+    color: var(--dark-menu-item);
+    font-weight: bold;
+}
+
+.radio-label {
+    background-color: var(--dark-card-background);
+    color: var(--dark-menu-item);
+} 
+
+.radio-label {
+    border: 1px solid var(--dark-menu-item);
+}
+
+.section-title
+{
+    background-color: var(--dark-background);
+    border:2px solid var(--dark-menu-item);
 }

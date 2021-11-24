@@ -5,23 +5,58 @@
 {% endblock %}
 
 {% block content %}
-  <h2>Audio recorder</h2>
-
-<div>
-  Krótki opis tego co tu bedize.
+<div class='section-title'>
+  <h1 class="text-color">Anonymous speaker data form</h1>
 </div>
-
-<div style = "width:70%; margin:auto">
-    <input id="speakerName" type="text"  placeholder="Name" style="width:45%">
-    <input id="speakerAge" type="number" min="1"  placeholder="Age" style="width:20%">
-    <select id="speakerSex" name="sex" placeholder="Sex" style="width:25%">
+<div class="speaker-form">
+  <div class = "radio-question">
+    <input id="speakerName" type="text"  placeholder="Name" style="width:40%">
+    <input id="speakerAge" type="number" min="1"  placeholder="Age" style="width:25%">
+    <select id="speakerSex" name="sex" placeholder="Sex" style="width:30%">
       <option value="" disabled selected hidden>Sex</option>
       <option value="F">Female</option>
       <option value="M">Male</option>
     </select>
-  </form>
+  </div>
+
+  <div class="radio-question" style="padding:10px;">
+    <h3 class="text-color">How is your voice today?</h3>
+    <div class="radio-group"> 
+ 
+      <input type="radio" name="voice-self-esteem" id="voice-sick" value="voice-sick" />
+      <label class="radio-label" for="voice-sick">Sick</label>
+     
+      <input type="radio" name="voice-self-esteem" id="voice-tired" value="voice-tired" />
+      <label class="radio-label" for="voice-tired">Tired</label>
+     
+      <input type="radio" name="voice-self-esteem" id="voice-normal" value="voice-normal" checked />
+      <label class="radio-label" for="voice-normal">Normal</label>
+      
+      <input type="radio" name="voice-self-esteem" id="voice-perfect" value="voice-perfect" />
+      <label class="radio-label" for="voice-perfect">Perfect</label>     
+     </div>
+  </div>
+
+  <div class="radio-question" style="padding:10px;">
+    <h3 class="text-color">How would you rate the pitch of your voice?</h3>
+    <div class="radio-group"> 
+ 
+      <input type="radio" name="voice-scale" id="voice-low" value="voice-low" />
+      <label class="radio-label" for="voice-low">Low</label>
+     
+      <input type="radio" name="voice-scale" id="voice-medium" value="voice-medium" checked />
+      <label class="radio-label" for="voice-medium">Medium</label>
+     
+      <input type="radio" name="voice-scale" id="voice-high" value="voice-high"/>
+      <label class="radio-label" for="voice-high">High</label>
+     </div>
+  </div>
+
 </div>
 
+<div class='section-title'>
+  <h1 class="text-color">Sentences scenario</h1>
+</div>
 <div class='scenarioBox'>
   <div id='previousSentence' class='disabled-sentences'></div>
   <div id='currentSentence'></div>
