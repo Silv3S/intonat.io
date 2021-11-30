@@ -15,6 +15,8 @@ import json
 class Home(TemplateView):
     template_name = 'home.html'
 
+def splash(request):
+    return render(request, 'splash.html')
 
 def record(request):
     context = {"recorder": "active"}

@@ -22,7 +22,8 @@ from pbaudio.uploader import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Home.as_view(), name='home'),
+    path('', views.splash, name='splash'),
+    path('home', views.Home.as_view(), name='home'),
     path('get_scenario/', views.get_scenario, name='get_scenario'),
     path('record/', views.record, name='record'),
 
