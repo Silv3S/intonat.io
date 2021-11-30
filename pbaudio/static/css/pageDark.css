@@ -97,6 +97,11 @@ input, select{
     color:var(--dark-menu-item)
 }
 
+#text-color-active
+{
+    color:var(--dark-menu-item-active)
+}
+
 .speaker-form
 {
     background-color: var(--dark-background);
