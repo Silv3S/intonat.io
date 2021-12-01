@@ -134,3 +134,12 @@ input[type="radio"]:hover:not(:checked) + .radio-label {
     background-color: var(--dark-background);
     border:2px solid var(--dark-menu-item);
 }
+
+.informations
+ {
+    color: var(--dark-menu-item);
+ }
+ 
+ .bar {
+    background: var(--dark-menu-item);
+ }

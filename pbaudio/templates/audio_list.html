@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
   {% block content_header %}
-    <h2>Recordings library</h2>
+    <h2 id='text-color-active'>Recordings library</h2>
   {% endblock %}
 
-  <table class="table mb-0">
+  <table class="table mb-0" id='text-color-active'>
     <thead>
       <tr>
         <th>Speaker</th>
@@ -25,7 +25,7 @@
           <td>{{ audio.sex }}</td>
           <td>{{ audio.recording }}</td>
           <td>
-            <a href="{{ audio.recording.url }}" class="btn btn-primary btn-sm" target="_blank">
+            <a href="{{ audio.recording.url }}" class="btn btn-info btn-sm" target="_blank">
               Download
             </a>
           </td>
